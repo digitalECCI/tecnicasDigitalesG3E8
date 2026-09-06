@@ -51,12 +51,34 @@ posteriormente, el diseño fue simulado para verificar que las salidas obtenidas
 valores esperados de la tabla de verdad.
         
 1.1.1 Descripción
-En esta actividad se diseñó un circuito combinacional en Verilog para implementar las compuertas lógicas NOT, AND, OR, XOR y XNOR. El sistema utiliza las señales A y B como entradas y genera una salida independiente para cada operación lógica
-la implementación permite observar directamente el comportamiento de cada compuerta ante las diferentes combinaciones de entrada. Posteriormente, el circuito es simulado para comparar las salidas obtenidas con las correspondientes tablas de verdad y comprobar el correcto funcionamiento del diseño
-además, se emplean tanto operadores lógicos de Verilog como primitivas del lenguaje, permitiendo comparar dos formas diferentes de describir un mismo circuito digital.
 
+En esta actividad se diseñó un circuito combinacional en **Verilog**
+para implementar las compuertas lógicas **NOT, AND, OR, XOR y XNOR**.
 
-#### 1.2 Diagramas
+El sistema utiliza las señales `A` y `B` como entradas y genera una
+salida independiente para cada operación lógica.
+
+La implementación permite observar directamente el comportamiento de
+cada compuerta ante las diferentes combinaciones de entrada.
+
+Posteriormente, el circuito fue simulado para comparar las salidas
+obtenidas con las tablas de verdad correspondientes y comprobar el
+
+1.1.2 Diagramas
+El circuito correspondiente a las compuertas lógicas fue representado en el simulador **Digital**, permitiendo 
+visualizar la conexión entre las entradas y las diferentes operaciones lógicas implementadas.
+#### Tabla de verdad
+
+La siguiente tabla muestra el estado de las salidas para cada combinación posible de las entradas `A` y `B`.
+
+| A | B | NOT A | AND | OR | XOR | XNOR |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 0 | 0 | 1 | 0 | 0 | 0 | 1 |
+| 0 | 1 | 1 | 0 | 1 | 1 | 0 |
+| 1 | 0 | 0 | 0 | 1 | 1 | 0 |
+| 1 | 1 | 0 | 1 | 1 | 0 | 1 |
+**Tabla 1.** Tabla de verdad correspondiente a las compuertas lógicas implementadas.
+
 
 
 ## Simulaciones 
