@@ -798,6 +798,21 @@ Los resultados físicos obtenidos fueron comparados con la tabla de verdad y con
 
 ## Conclusiones
 
+## 5. Conclusiones
+
+1. La implementación de las compuertas lógicas permitió comprobar el comportamiento de las operaciones fundamentales **NOT, AND, OR, XOR y XNOR**, verificando mediante simulación que las salidas obtenidas coincidieran con sus respectivas tablas de verdad.
+
+2. El diseño del detector de números primos de 3 bits permitió aplicar el análisis de funciones booleanas y su simplificación para implementar un circuito combinacional capaz de identificar correctamente los valores primos comprendidos entre 0 y 7.
+
+3. La implementación del sumador completo de 1 bit permitió comprender el funcionamiento conjunto del bit de suma y del acarreo de salida, así como la importancia de este circuito como bloque básico para construir sistemas aritméticos de mayor número de bits.
+
+4. El uso de **Icarus Verilog** y **GTKWave** permitió verificar previamente el comportamiento de los diseños mediante simulación, reduciendo la posibilidad de errores antes de realizar la implementación física.
+
+5. La utilización de **Quartus Prime** y la tarjeta **FPGA DE10-Lite** permitió llevar los diseños descritos en Verilog a una implementación real, asociando las entradas y salidas del circuito con los interruptores, LED y pines físicos de la FPGA.
+
+6. La comparación entre las tablas de verdad, las simulaciones y las pruebas realizadas sobre la FPGA permitió comprobar que los circuitos implementados presentaron el comportamiento lógico esperado.
+
+7. El desarrollo del laboratorio permitió relacionar el diseño lógico teórico con su descripción mediante HDL, su simulación y su implementación física, siguiendo el flujo básico de desarrollo utilizado en sistemas digitales programables.
 
 ## Referencias
 
