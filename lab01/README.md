@@ -434,7 +434,7 @@ Durante la simulación se espera que la salida `S_TB` presente un nivel lógico 
 
 La siguiente figura muestra las formas de onda obtenidas durante la simulación del detector de números primos. Se observan las combinaciones de la entrada de 3 bits y la respuesta de la salida `S`, la cual se activa para los valores decimales 2, 3, 5 y 7.
 
-![Simulación del detector de números primos en GTKWave](img/simulacion_primos_gtkwave_lab1.png)
+![Simulación del detector de números primos en GTKWave](img/simulacion_gtkwave_pirmos_lab1.png)
 
 **Figura 3.** Simulación del detector de números primos mediante Icarus Verilog y GTKWave.
 
