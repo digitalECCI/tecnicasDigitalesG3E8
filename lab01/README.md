@@ -19,10 +19,16 @@ Indice:
 1 Documentación del diseño implementado
 
 1.1.0 compuertas logicas
-En esta primera parte del laboratorio se implementaron las compuertas lógicas fundamentales NOT, AND, OR, XOR y XNOR mediante lenguaje Verilog. El objetivo fue comprobar su funcionamiento y relacionar cada operación lógica con su correspondiente tabla de verdad.
-Las entradas del circuito se definieron como A y B, mientras que cada compuerta genera una salida independiente. Para la compuerta NOT únicamente se utiliza la entrada A.
+En esta primera parte del laboratorio se implementaron las compuertas
+lógicas fundamentales **NOT, AND, OR, XOR y XNOR** mediante lenguaje
+Verilog.
 
-Las operaciones implementadas fueron:
+El objetivo fue comprobar su funcionamiento y relacionar cada operación
+lógica con su correspondiente tabla de verdad.
+
+Las entradas del circuito se definieron como `A` y `B`, mientras que
+cada compuerta genera una salida independiente. Para la compuerta
+**NOT** únicamente se utiliza la entrada `A`.
 
 NOT: invierte el estado lógico de la entrada.
 AND: genera una salida lógica 1 únicamente cuando ambas entradas son 1.
