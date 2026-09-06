@@ -739,7 +739,7 @@ En la simulación se observan las entradas `A`, `B` y `C`, junto con las salidas
 
 <!-- COLOCAR AQUÍ LA CAPTURA DE GTKWave -->
 
-![Simulación del sumador completo en GTKWave](img/simulacion_sumador_gtkwave_lab1.png)
+![Simulación del sumador completo en GTKWave](img/simulacion_gtkwave_3.png.png)
 
 **Figura X.** Formas de onda del sumador completo de 1 bit visualizadas mediante GTKWave.
 
@@ -757,6 +757,45 @@ Los resultados esperados durante la simulación son:
 | 1 | 1 | 1 | 1 | 1 |
 
 Los resultados obtenidos permiten comprobar el comportamiento esperado del sumador completo. La salida `S2` representa el bit de suma, mientras que `S1` se activa cuando la operación produce un acarreo.
+
+### 3.3 Implementación del sumador completo de 1 bit
+
+Para realizar la implementación física del sumador completo se utilizó **Quartus Prime** y una tarjeta **FPGA DE10-Lite**.
+
+El archivo `laboratorio_1_3.v` fue agregado al proyecto y el módulo `ejercicio_1_3` fue establecido como **Top-Level Entity**.
+
+Posteriormente, se realizó el proceso de **Analysis & Synthesis** para verificar que la descripción Verilog pudiera ser sintetizada correctamente.
+
+Una vez validado el diseño, se utilizó la herramienta **Pin Planner** para asociar las entradas `A`, `B` y `C` con interruptores físicos de la tarjeta DE10-Lite.
+
+Las salidas `S1` y `S2` fueron asociadas a LED de la FPGA, permitiendo observar directamente el resultado de cada combinación de entrada.
+
+#### Asignación de pines
+
+| Señal | Dirección | Elemento DE10-Lite | Pin |
+|:---:|:---:|:---:|:---:|
+| `A` | Entrada | Interruptor | `Completar` |
+| `B` | Entrada | Interruptor | `Completar` |
+| `C` | Entrada | Interruptor | `Completar` |
+| `S1` | Salida | LED - Carry | `Completar` |
+| `S2` | Salida | LED - Sum | `Completar` |
+
+La siguiente figura muestra la asignación realizada en el **Pin Planner** de Quartus Prime.
+
+<!-- COLOCAR AQUÍ LA IMAGEN DEL PIN PLANNER -->
+
+![Asignación de pines del sumador completo](img/pinplanner_sumador_lab1.png)
+
+**Figura X.** Asignación de entradas y salidas del sumador completo mediante el Pin Planner de Quartus Prime.
+
+Después de realizar la asignación de pines se ejecutó la compilación completa del proyecto y se generó el archivo de programación correspondiente.
+
+Finalmente, mediante la herramienta **Programmer** y la interfaz **USB-Blaster**, el diseño fue cargado en la FPGA DE10-Lite.
+
+El funcionamiento del circuito se comprobó modificando las combinaciones de los tres interruptores utilizados como entradas y observando los estados de los LED correspondientes a `S1` y `S2`.
+
+Los resultados físicos obtenidos fueron comparados con la tabla de verdad y con la simulación realizada previamente en GTKWave.
+
 ## Conclusiones
 
 
