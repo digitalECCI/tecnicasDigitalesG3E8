@@ -120,7 +120,8 @@ y las salidas asociadas a cada operación lógica.
 
 **Figura 1.** Diagrama de las compuertas lógicas implementadas en el simulador Digital.
 
-1.3 Evidencias de implementación
+1.3 Evidencias de implementación.
+
 Para la implementación física del diseño se utilizó **Quartus Prime** como entorno de desarrollo para compilar y cargar el código **Verilog**
 en una tarjeta **FPGA DE10-Lite**.
 Inicialmente, se creó un proyecto en Quartus y se agregó el archivo Verilog correspondiente al circuito diseñado. Posteriormente, se definió
