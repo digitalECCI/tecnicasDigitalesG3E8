@@ -739,7 +739,7 @@ En la simulación se observan las entradas `A`, `B` y `C`, junto con las salidas
 
 <!-- COLOCAR AQUÍ LA CAPTURA DE GTKWave -->
 
-![Simulación del sumador completo en GTKWave](img/simulacion_gtkwave_3.png.png)
+![Simulación del sumador completo en GTKWave](img/simulacion_gtkwave_3.png)
 
 **Figura X.** Formas de onda del sumador completo de 1 bit visualizadas mediante GTKWave.
 
@@ -784,7 +784,7 @@ La siguiente figura muestra la asignación realizada en el **Pin Planner** de Qu
 
 <!-- COLOCAR AQUÍ LA IMAGEN DEL PIN PLANNER -->
 
-![Asignación de pines del sumador completo](img/pinplanner_sumador_lab1.png)
+![Asignación de pines del sumador completo](img/pinplaner_punto3.png)
 
 **Figura X.** Asignación de entradas y salidas del sumador completo mediante el Pin Planner de Quartus Prime.
 
