@@ -438,6 +438,104 @@ La siguiente figura muestra las formas de onda obtenidas durante la simulación 
 
 **Figura 3.** Simulación del detector de números primos mediante Icarus Verilog y GTKWave.
 
+### 3.2 Implementación del detector de números primos
+
+Para realizar la implementación física del detector de números primos de 3 bits se utilizó **Quartus Prime** y una tarjeta **FPGA DE10-Lite**.
+
+El diseño desarrollado previamente fue descrito en lenguaje **Verilog** utilizando primitivas lógicas. El circuito recibe una entrada `A` de 3 bits y genera una salida `S`, la cual toma un valor lógico alto cuando el número binario aplicado a la entrada corresponde a un número primo.
+
+#### 3.2.1 Código Verilog implementado
+
+El código utilizado para describir el circuito fue el siguiente:
+
+```verilog
+module ejercicio_1_2(
+    input [0:2] A,
+    output S
+);
+
+    wire C1;
+    wire C2;
+    wire C3;
+
+    not (C1, A[0]);
+    and (C2, C1, A[1]);
+    and (C3, A[2], A[0]);
+    or  (S, C2, C3);
+
+endmodule
+```
+
+La implementación utiliza tres señales internas, `C1`, `C2` y `C3`, para construir la función lógica correspondiente al detector.
+
+La señal `C1` corresponde a la negación del bit `A[0]`:
+
+`C1 = ~A[0]`
+
+Posteriormente se generan los términos:
+
+`C2 = ~A[0] & A[1]`
+
+`C3 = A[0] & A[2]`
+
+Finalmente, ambos términos se combinan mediante una compuerta OR:
+
+`S = (~A[0] & A[1]) | (A[0] & A[2])`
+
+De esta manera, la salida `S` se activa para las combinaciones binarias correspondientes a los números primos **2, 3, 5 y 7**.
+
+---
+
+#### 3.2.2 Implementación en Quartus Prime
+
+El archivo Verilog fue agregado a un proyecto creado en **Quartus Prime**, seleccionando el dispositivo FPGA correspondiente a la tarjeta **DE10-Lite**.
+
+Posteriormente, el módulo `ejercicio_1_2` fue establecido como **Top-Level Entity** y se realizó el proceso de **Analysis & Synthesis** para verificar la correcta descripción lógica del circuito.
+
+Una vez comprobado que el diseño no presentaba errores de compilación, se utilizó la herramienta **Pin Planner** para asociar las señales del módulo con los recursos físicos disponibles en la FPGA.
+
+Los tres bits de la entrada `A` fueron asignados a interruptores de la tarjeta DE10-Lite y la salida `S` fue asociada a un LED, permitiendo comprobar físicamente el funcionamiento del detector.
+
+#### Asignación de pines
+
+| Señal | Tipo | Elemento en la DE10-Lite | Pin |
+|:---:|:---:|:---:|:---:|
+| `A[0]` | Entrada | Interruptor | `Completar` |
+| `A[1]` | Entrada | Interruptor | `Completar` |
+| `A[2]` | Entrada | Interruptor | `Completar` |
+| `S` | Salida | LED | `Completar` |
+
+La siguiente figura muestra la asignación realizada mediante el **Pin Planner** de Quartus Prime.
+
+<!-- COLOCAR AQUÍ LA IMAGEN DEL PIN PLANNER -->
+
+![Asignación de pines del detector de números primos](img/pines_punto_2.png)
+
+**Figura X.** Asignación de entradas y salida del detector de números primos mediante el Pin Planner de Quartus Prime.
+
+---
+
+#### 3.2.3 Programación de la FPGA
+
+Después de realizar la asignación de pines se ejecutó la compilación completa del proyecto. Quartus generó el archivo de programación necesario para configurar la FPGA.
+
+Finalmente, mediante la herramienta **Programmer** y la interfaz **USB-Blaster**, el diseño fue cargado en la tarjeta DE10-Lite.
+
+El funcionamiento fue comprobado modificando la posición de los tres interruptores utilizados como entrada. El LED asociado a la salida `S` se activó únicamente cuando el valor binario aplicado correspondía a los números decimales **2, 3, 5 y 7**.
+
+| Entrada binaria | Decimal | Estado esperado de `S` |
+|:---:|:---:|:---:|
+| `000` | 0 | 0 |
+| `001` | 1 | 0 |
+| `010` | 2 | 1 |
+| `011` | 3 | 1 |
+| `100` | 4 | 0 |
+| `101` | 5 | 1 |
+| `110` | 6 | 0 |
+| `111` | 7 | 1 |
+
+Los resultados obtenidos durante la implementación física coincidieron con los resultados previamente establecidos mediante la tabla de verdad y la simulación realizada con Icarus Verilog y GTKWave.
+
 ## Conclusiones
 
 
