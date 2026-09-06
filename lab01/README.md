@@ -30,11 +30,19 @@ Las entradas del circuito se definieron como `A` y `B`, mientras que
 cada compuerta genera una salida independiente. Para la compuerta
 **NOT** únicamente se utiliza la entrada `A`.
 
-NOT: invierte el estado lógico de la entrada.
-AND: genera una salida lógica 1 únicamente cuando ambas entradas son 1.
-OR: genera una salida 1 cuando al menos una de las entradas es 1.
-XOR: genera una salida 1 cuando las entradas presentan valores diferentes.
-XNOR: genera una salida 1 cuando ambas entradas presentan el mismo valor lógico.
+- **NOT:** invierte el estado lógico de la entrada.
+- **AND:** genera una salida lógica `1` únicamente cuando ambas entradas son `1`.
+- **OR:** genera una salida `1` cuando al menos una de las entradas es `1`.
+- **XOR:** genera una salida `1` cuando las entradas presentan valores diferentes.
+- **XNOR:** genera una salida `1` cuando ambas entradas presentan el mismo valor lógico.
+
+| Compuerta | Expresión |
+|---|---|
+| NOT | `Y = ~A` |
+| AND | `Y = A & B` |
+| OR | `Y = A \| B` |
+| XOR | `Y = A ^ B` |
+| XNOR | `Y = ~(A ^ B)` 
 
 En Verilog estas operaciones pueden implementarse mediante operadores lógicos o mediante primitivas propias del lenguaje. En este laboratorio se utilizaron ambas formas con el propósito de observar que producen el mismo comportamiento lógico.
 posteriormente, el diseño fue simulado para verificar que las salidas obtenidas coincidieran con los valores esperados de la tabla de verdad.
