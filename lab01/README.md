@@ -111,7 +111,13 @@ se observan las entradas `A` y `B`, junto con las salidas correspondientes a las
 **Figura 2.** Simulación de las compuertas lógicas mediante Icarus Verilog y GTKWave.
 
 1.2 Diagrama
+#### 1.1.2 Diagramas
 
+El siguiente diagrama corresponde a la implementación de las compuertas lógicas en el simulador **Digital**, donde se representan las entradas y las salidas asociadas a cada operación lógica.
+
+![Diagrama de compuertas lógicas en Digital](img/compuertas_digital_lab_1.png)
+
+**Figura 1.** Diagrama de las compuertas lógicas implementadas en el simulador Digital.
 
 ## Evidencias de implementación
 
