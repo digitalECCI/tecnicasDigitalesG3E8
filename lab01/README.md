@@ -254,7 +254,7 @@ Las señales de entrada `A` y `B` fueron asociadas a pines físicos de la tarjet
 
 La siguiente figura muestra la configuración realizada en el **Pin Planner** de Quartus.
 
-![Asignación de pines en Quartus](img/asignacion de pines punto 1.png)
+![Asignación de pines en Quartus](img/asignacion_de_pines_punto_1.png)
 
 **Figura 4.** Asignación de las señales de entrada y salida en el Pin Planner de Quartus Prime.
 
