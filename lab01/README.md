@@ -613,6 +613,150 @@ La siguiente tabla presenta las ocho combinaciones posibles de las entradas del 
 | 1 | 1 | 1 | 1 | 1 |
 
 **Tabla 3.** Tabla de verdad correspondiente al sumador completo de 1 bit.
+
+### 2.3 Simulación del sumador completo de 1 bit
+
+#### 2.3.1 Descripción
+
+Para verificar el funcionamiento del sumador completo se utilizó **Icarus Verilog** como herramienta de compilación y simulación del diseño, complementado con **GTKWave** para visualizar las formas de onda generadas.
+
+El archivo de prueba o *testbench* fue diseñado para recorrer las ocho combinaciones posibles de las entradas `A`, `B` y `C`.
+
+Cada combinación permanece durante un intervalo determinado antes de aplicar el siguiente caso de prueba.
+
+El flujo utilizado fue:
+
+`Código Verilog → Testbench → Icarus Verilog → Archivo VCD → GTKWave`
+
+Durante la simulación se verificaron simultáneamente las salidas:
+
+- `S1_TB`: acarreo de salida.
+- `S2_TB`: resultado de la suma.
+
+---
+
+#### 2.3.2 Testbench
+
+El siguiente código corresponde al archivo utilizado para comprobar las ocho combinaciones posibles de las entradas.
+
+```verilog
+// Se incluye el archivo que contiene el módulo principal
+`include "laboratorio_1_3.v"
+
+// Se define la escala de tiempo
+`timescale 1s/1s
+
+module ejercicio_1_3_TB();
+
+// Entradas utilizadas durante la simulación
+reg A_TB;
+reg B_TB;
+reg C_TB;
+
+// Salidas del circuito
+wire S1_TB;
+wire S2_TB;
+
+// Instancia del módulo a comprobar
+ejercicio_1_3 uut (
+    .A(A_TB),
+    .B(B_TB),
+    .C(C_TB),
+    .S1(S1_TB),
+    .S2(S2_TB)
+);
+
+initial begin
+
+    // Caso 1: A = 0, B = 0, C = 0
+    C_TB = 1'b0;
+    B_TB = 1'b0;
+    A_TB = 1'b0;
+    #5;
+
+    // Caso 2: A = 0, B = 0, C = 1
+    C_TB = 1'b1;
+    B_TB = 1'b0;
+    A_TB = 1'b0;
+    #5;
+
+    // Caso 3: A = 0, B = 1, C = 0
+    C_TB = 1'b0;
+    B_TB = 1'b1;
+    A_TB = 1'b0;
+    #5;
+
+    // Caso 4: A = 0, B = 1, C = 1
+    C_TB = 1'b1;
+    B_TB = 1'b1;
+    A_TB = 1'b0;
+    #5;
+
+    // Caso 5: A = 1, B = 0, C = 0
+    C_TB = 1'b0;
+    B_TB = 1'b0;
+    A_TB = 1'b1;
+    #5;
+
+    // Caso 6: A = 1, B = 0, C = 1
+    C_TB = 1'b1;
+    B_TB = 1'b0;
+    A_TB = 1'b1;
+    #5;
+
+    // Caso 7: A = 1, B = 1, C = 0
+    C_TB = 1'b0;
+    B_TB = 1'b1;
+    A_TB = 1'b1;
+    #5;
+
+    // Caso 8: A = 1, B = 1, C = 1
+    C_TB = 1'b1;
+    B_TB = 1'b1;
+    A_TB = 1'b1;
+    #5;
+
+end
+
+initial begin : TEST_CASE
+
+    $dumpfile("simulacion.1.3.vcd");
+    $dumpvars(-1, uut);
+
+    #50;
+    $finish;
+
+end
+
+endmodule
+```
+
+#### 2.3.3 Resultados de la simulación
+
+La siguiente figura muestra las formas de onda obtenidas mediante **Icarus Verilog** y visualizadas utilizando **GTKWave**.
+
+En la simulación se observan las entradas `A`, `B` y `C`, junto con las salidas `S1` y `S2`.
+
+<!-- COLOCAR AQUÍ LA CAPTURA DE GTKWave -->
+
+![Simulación del sumador completo en GTKWave](img/simulacion_sumador_gtkwave_lab1.png)
+
+**Figura X.** Formas de onda del sumador completo de 1 bit visualizadas mediante GTKWave.
+
+Los resultados esperados durante la simulación son:
+
+| A | B | C | `S1_TB` | `S2_TB` |
+|:---:|:---:|:---:|:---:|:---:|
+| 0 | 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 0 | 1 |
+| 0 | 1 | 0 | 0 | 1 |
+| 0 | 1 | 1 | 1 | 0 |
+| 1 | 0 | 0 | 0 | 1 |
+| 1 | 0 | 1 | 1 | 0 |
+| 1 | 1 | 0 | 1 | 0 |
+| 1 | 1 | 1 | 1 | 1 |
+
+Los resultados obtenidos permiten comprobar el comportamiento esperado del sumador completo. La salida `S2` representa el bit de suma, mientras que `S1` se activa cuando la operación produce un acarreo.
 ## Conclusiones
 
 
