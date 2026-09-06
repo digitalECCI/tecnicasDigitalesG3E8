@@ -44,8 +44,11 @@ cada compuerta genera una salida independiente. Para la compuerta
 | XOR | `Y = A ^ B` |
 | XNOR | `Y = ~(A ^ B)` 
 
-En Verilog estas operaciones pueden implementarse mediante operadores lógicos o mediante primitivas propias del lenguaje. En este laboratorio se utilizaron ambas formas con el propósito de observar que producen el mismo comportamiento lógico.
-posteriormente, el diseño fue simulado para verificar que las salidas obtenidas coincidieran con los valores esperados de la tabla de verdad.
+En Verilog estas operaciones pueden implementarse mediante operadores lógicos o mediante primitivas
+propias del lenguaje. En este laboratorio se utilizaron ambas formas con el propósito de observar que
+producen el mismo comportamiento lógico.
+posteriormente, el diseño fue simulado para verificar que las salidas obtenidas coincidieran con los
+valores esperados de la tabla de verdad.
         
 1.1.1 Descripción
 En esta actividad se diseñó un circuito combinacional en Verilog para implementar las compuertas lógicas NOT, AND, OR, XOR y XNOR. El sistema utiliza las señales A y B como entradas y genera una salida independiente para cada operación lógica
