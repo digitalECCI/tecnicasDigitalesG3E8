@@ -236,7 +236,27 @@ end
 
 endmodule
 ```
+#### Asignación de pines
 
+Una vez compilado y verificado el diseño en Quartus Prime, se realizó la asignación de las entradas y salidas mediante la herramienta **Pin Planner**.
+
+Las señales de entrada `A` y `B` fueron asociadas a pines físicos de la tarjeta FPGA DE10-Lite, mientras que las salidas correspondientes a las compuertas lógicas fueron asignadas a pines conectados a los indicadores visuales de la tarjeta.
+
+| Señal | Dirección | Pin asignado |
+|:---:|:---:|:---:|
+| `A` | Entrada | `PIN_C10` |
+| `B` | Entrada | `PIN_C11` |
+| `SAND` | Salida | `PIN_A9` |
+| `SNOT` | Salida | `PIN_A8` |
+| `SOR` | Salida | `PIN_A10` |
+| `SXNOR` | Salida | `PIN_D13` |
+| `SXOR` | Salida | `PIN_B10` |
+
+La siguiente figura muestra la configuración realizada en el **Pin Planner** de Quartus.
+
+![Asignación de pines en Quartus](img/asignacion_pines_lab1.png)
+
+**Figura 4.** Asignación de las señales de entrada y salida en el Pin Planner de Quartus Prime.
 
 ## Conclusiones
 
