@@ -332,6 +332,112 @@ La siguiente tabla presenta todas las combinaciones posibles de las entradas `A`
 | 1 | 1 | 1 | 7 | 1 |
 
 **Tabla 2.** Tabla de verdad correspondiente al detector de números primos de 3 bits.
+#### 2.2.4 Testbench
+
+El archivo de prueba fue diseñado para recorrer automáticamente las ocho combinaciones posibles de las entradas `A`, `B` y `C`.
+
+#### 2.2.4 Testbench
+
+Para verificar el funcionamiento del detector de números primos se desarrolló un archivo de prueba o **testbench**. La entrada `A_TB` se definió como un vector de 3 bits y se recorrieron secuencialmente las ocho combinaciones posibles, desde `000` hasta `111`.
+
+Cada combinación permanece durante un intervalo de tiempo antes de pasar al siguiente caso. Durante la ejecución de la simulación, las señales son almacenadas en el archivo `simulacion.1.2.vcd`, el cual posteriormente se visualiza mediante **GTKWave**.
+
+```verilog
+// Se incluye el archivo que contiene el módulo principal
+`include "laboratorio_1_2.v"
+
+// Se define la escala de tiempo
+`timescale 1s/1s
+
+module ejercicio_1_2_TB();
+
+// Entrada de 3 bits utilizada durante la simulación
+reg [2:0] A_TB;
+
+// Salida del circuito
+wire S_TB;
+
+// Instancia del módulo a comprobar
+ejercicio_1_2 uut (
+    .A(A_TB),
+    .S(S_TB)
+);
+
+initial begin
+
+    // Caso 1: decimal 0
+    A_TB = 3'b000;
+    #5;
+
+    // Caso 2: decimal 1
+    A_TB = 3'b001;
+    #5;
+
+    // Caso 3: decimal 2
+    A_TB = 3'b010;
+    #5;
+
+    // Caso 4: decimal 3
+    A_TB = 3'b011;
+    #5;
+
+    // Caso 5: decimal 4
+    A_TB = 3'b100;
+    #5;
+
+    // Caso 6: decimal 5
+    A_TB = 3'b101;
+    #5;
+
+    // Caso 7: decimal 6
+    A_TB = 3'b110;
+    #5;
+
+    // Caso 8: decimal 7
+    A_TB = 3'b111;
+    #5;
+
+end
+
+initial begin : TEST_CASE
+
+    // Archivo para almacenar las formas de onda
+    $dumpfile("simulacion.1.2.vcd");
+
+    // Se registran las señales de la instancia uut
+    $dumpvars(-1, uut);
+
+    #50;
+    $finish;
+
+end
+
+endmodule
+```
+
+#### Resultados esperados
+
+| `A_TB` | Decimal | ¿Número primo? | `S_TB` |
+|:------:|:-------:|:--------------:|:------:|
+| `000` | 0 | No | 0 |
+| `001` | 1 | No | 0 |
+| `010` | 2 | Sí | 1 |
+| `011` | 3 | Sí | 1 |
+| `100` | 4 | No | 0 |
+| `101` | 5 | Sí | 1 |
+| `110` | 6 | No | 0 |
+| `111` | 7 | Sí | 1 |
+
+**Tabla 3.** Comportamiento esperado del detector de números primos durante la simulación.
+
+Durante la simulación se espera que la salida `S_TB` presente un nivel lógico alto únicamente cuando la entrada represente un número primo.
+
+La siguiente figura muestra las formas de onda obtenidas durante la simulación del detector de números primos. Se observan las combinaciones de la entrada de 3 bits y la respuesta de la salida `S`, la cual se activa para los valores decimales 2, 3, 5 y 7.
+
+![Simulación del detector de números primos en GTKWave](img/simulacion_primos_gtkwave_lab1.png)
+
+**Figura 3.** Simulación del detector de números primos mediante Icarus Verilog y GTKWave.
+
 ## Conclusiones
 
 
