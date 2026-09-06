@@ -158,6 +158,85 @@ module ejercicio_1_1(
 endmodule
 ```
 
+#### Testbench
+
+Para verificar el funcionamiento de las compuertas lógicas se desarrolló un **testbench** que genera las cuatro combinaciones posibles de las entradas `A` y `B`. Los resultados de la simulación se almacenan en un archivo `.vcd`, posteriormente visualizado mediante **GTKWave**.
+
+```verilog
+// Se incluye el archivo que contiene el módulo principal
+`include "laboratorio_1_1.v"
+
+// Se define la escala de tiempo
+`timescale 1s/1s
+
+module ejercicio_1_1_TB();
+
+// Entradas del circuito utilizadas durante la simulación
+reg A_TB;
+reg B_TB;
+
+// Salidas del circuito
+wire SAND_TB;
+wire SOR_TB;
+wire SNOT_TB;
+wire SXOR_TB;
+wire SXNOR_TB;
+
+// Instancia del módulo que se desea comprobar
+ejercicio_1_1 uut (
+    .A(A_TB),
+    .B(B_TB),
+    .SAND(SAND_TB),
+    .SOR(SOR_TB),
+    .SNOT(SNOT_TB),
+    .SXOR(SXOR_TB),
+    .SXNOR(SXNOR_TB)
+);
+
+initial begin
+
+    // Caso 1: A = 0, B = 0
+    A_TB = 1'b0;
+    B_TB = 1'b0;
+
+    #5;
+
+    // Caso 2: A = 1, B = 0
+    A_TB = 1'b1;
+    B_TB = 1'b0;
+
+    #5;
+
+    // Caso 3: A = 0, B = 1
+    A_TB = 1'b0;
+    B_TB = 1'b1;
+
+    #5;
+
+    // Caso 4: A = 1, B = 1
+    A_TB = 1'b1;
+    B_TB = 1'b1;
+
+    #5;
+
+end
+
+initial begin : TEST_CASE
+
+    // Archivo utilizado para visualizar las señales en GTKWave
+    $dumpfile("simulacion1.1.vcd");
+
+    // Se almacenan las señales de la instancia uut
+    $dumpvars(-1, uut);
+
+    #50;
+    $finish;
+
+end
+
+endmodule
+```
+
 
 ## Conclusiones
 
