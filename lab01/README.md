@@ -536,6 +536,79 @@ El funcionamiento fue comprobado modificando la posición de los tres interrupto
 
 Los resultados obtenidos durante la implementación física coincidieron con los resultados previamente establecidos mediante la tabla de verdad y la simulación realizada con Icarus Verilog y GTKWave.
 
+### 1.3 Sumador completo de 1 bit
+
+En esta tercera parte del laboratorio se diseñó e implementó un **sumador completo de 1 bit (Full Adder)** mediante lenguaje Verilog.
+
+El circuito utiliza tres entradas digitales: `A`, `B` y `C`. Las entradas `A` y `B` corresponden a los bits que se desean sumar, mientras que `C` representa el acarreo de entrada o **Carry In** proveniente de una operación anterior.
+
+El sistema genera dos salidas:
+
+- `S1`: acarreo de salida o **Carry Out**.
+- `S2`: resultado de la suma o **Sum**.
+
+Las expresiones booleanas implementadas son:
+
+`S1 = (C & (A | B)) | (A & B)`
+
+`S2 = C ^ (A ^ B)`
+
+La expresión correspondiente a `S1` puede desarrollarse como:
+
+`S1 = (C & A) | (C & B) | (A & B)`
+
+por lo tanto:
+
+`S1 = AB + AC + BC`
+
+Esta expresión representa el acarreo de salida de un sumador completo.
+
+La salida `S2` corresponde a:
+
+`S2 = A XOR B XOR C`
+
+y representa el bit resultante de la suma.
+
+---
+
+#### 1.3.1 Descripción
+
+El **sumador completo de 1 bit** es un circuito combinacional capaz de sumar tres bits de entrada.
+
+A diferencia de un medio sumador, el sumador completo incorpora una tercera entrada correspondiente al acarreo proveniente de una etapa anterior. Esta característica permite conectar varios sumadores completos de forma consecutiva para realizar operaciones con números de varios bits.
+
+En el diseño implementado, las entradas `A` y `B` corresponden a los bits que se desean sumar, mientras que `C` funciona como acarreo de entrada.
+
+La salida `S2` representa el bit de suma, mientras que `S1` indica si se genera un acarreo hacia una etapa posterior.
+
+---
+
+#### 1.3.2 Diagramas
+
+El circuito correspondiente al sumador completo fue representado en el simulador **Digital**, permitiendo visualizar la relación entre las entradas `A`, `B` y `C` y las salidas `S1` y `S2`.
+
+<!-- COLOCAR AQUÍ IMAGEN DEL CIRCUITO EN DIGITAL -->
+
+![Diagrama del sumador completo](img/diagrama_sumador_digital_lab1.png)
+
+**Figura X.** Diagrama lógico del sumador completo de 1 bit implementado en Digital.
+
+#### Tabla de verdad
+
+La siguiente tabla presenta las ocho combinaciones posibles de las entradas del sumador completo.
+
+| A | B | C | S1 - Carry | S2 - Sum |
+|:---:|:---:|:---:|:---:|:---:|
+| 0 | 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 0 | 1 |
+| 0 | 1 | 0 | 0 | 1 |
+| 0 | 1 | 1 | 1 | 0 |
+| 1 | 0 | 0 | 0 | 1 |
+| 1 | 0 | 1 | 1 | 0 |
+| 1 | 1 | 0 | 1 | 0 |
+| 1 | 1 | 1 | 1 | 1 |
+
+**Tabla 3.** Tabla de verdad correspondiente al sumador completo de 1 bit.
 ## Conclusiones
 
 
