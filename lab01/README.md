@@ -312,7 +312,7 @@ La implementación lógica corresponde a la expresión:
 
 La siguiente figura muestra el circuito implementado en Digital.
 
-![Diagrama del detector de números primos](img/diagrama_primos_digital_lab1.png)
+![Diagrama del detector de números primos](simulacion_primos_punto_2.png)
 
 **Figura 2.** Diagrama lógico del detector de números primos de 3 bits implementado en Digital.
 
