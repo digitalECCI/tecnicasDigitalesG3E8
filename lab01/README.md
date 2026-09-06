@@ -110,16 +110,52 @@ se observan las entradas `A` y `B`, junto con las salidas correspondientes a las
 
 **Figura 2.** Simulación de las compuertas lógicas mediante Icarus Verilog y GTKWave.
 
-1.2 Diagrama
+1.2.1 Diagrama
 #### 1.1.2 Diagramas
 
-El siguiente diagrama corresponde a la implementación de las compuertas lógicas en el simulador **Digital**, donde se representan las entradas y las salidas asociadas a cada operación lógica.
+El siguiente diagrama corresponde a la implementación de las compuertas lógicas en el simulador **Digital**, donde se representan las entradas
+y las salidas asociadas a cada operación lógica.
 
 ![Diagrama de compuertas lógicas en Digital](img/compuertas_digital_lab_1.png)
 
 **Figura 1.** Diagrama de las compuertas lógicas implementadas en el simulador Digital.
 
-## Evidencias de implementación
+1.3 Evidencias de implementación
+Para la implementación física del diseño se utilizó **Quartus Prime** como entorno de desarrollo para compilar y cargar el código **Verilog**
+en una tarjeta **FPGA DE10-Lite**.
+Inicialmente, se creó un proyecto en Quartus y se agregó el archivo Verilog correspondiente al circuito diseñado. Posteriormente, se definió
+el módulo principal como **Top-Level Entity** y se realizó el proceso de **Analysis & Synthesis** para verificar que el código no presentara 
+errores de sintaxis ni de descripción lógica.
+Una vez validado el diseño, se utilizó la herramienta **Pin Planner** para asignar las entradas y salidas del circuito a los pines físicos de 
+la FPGA. Las señales de entrada fueron asociadas a los interruptores de la tarjeta y las señales de salida a los LED disponibles en la DE10-Lite.
+Después de realizar la asignación de pines, se ejecutó la compilación completa del proyecto, generando el archivo de programación correspondiente.
+Finalmente, mediante la herramienta **Programmer** de Quartus y una conexión USB-Blaster, se cargó el diseño en la FPGA DE10-Lite.
+La implementación permitió comprobar físicamente el comportamiento de las compuertas lógicas, verificando que las salidas observadas en los LED 
+coincidieran con los resultados obtenidos previamente en la simulación.
+
+#### Código Verilog implementado
+
+El siguiente código corresponde a la implementación de las compuertas lógicas mediante primitivas de Verilog.
+
+```verilog
+module ejercicio_1_1(
+    input A,
+    input B,
+    output SAND,
+    output SNOT,
+    output SOR,
+    output SXOR,
+    output SXNOR
+);
+
+    and  (SAND,  A, B);
+    not  (SNOT,  A);
+    or   (SOR,   A, B);
+    xor  (SXOR,  A, B);
+    xnor (SXNOR, A, B);
+
+endmodule
+```
 
 
 ## Conclusiones
