@@ -240,7 +240,8 @@ endmodule
 
 Una vez compilado y verificado el diseño en Quartus Prime, se realizó la asignación de las entradas y salidas mediante la herramienta **Pin Planner**.
 
-Las señales de entrada `A` y `B` fueron asociadas a pines físicos de la tarjeta FPGA DE10-Lite, mientras que las salidas correspondientes a las compuertas lógicas fueron asignadas a pines conectados a los indicadores visuales de la tarjeta.
+Las señales de entrada `A` y `B` fueron asociadas a pines físicos de la tarjeta FPGA DE10-Lite, mientras que las salidas correspondientes a las
+compuertas lógicas fueron asignadas a pines conectados a los indicadores visuales de la tarjeta.
 
 | Señal | Dirección | Pin asignado |
 |:---:|:---:|:---:|
@@ -258,6 +259,79 @@ La siguiente figura muestra la configuración realizada en el **Pin Planner** de
 
 **Figura 4.** Asignación de las señales de entrada y salida en el Pin Planner de Quartus Prime.
 
+### 1.2 Detector de números primos de 3 bits
+
+En esta segunda parte del laboratorio se diseñó e implementó un circuito lógico combinacional capaz de determinar si un número binario de **3 bits** 
+corresponde a un número primo.
+
+El circuito utiliza tres entradas, denominadas `A`, `B` y `C`, las cuales representan un número binario comprendido entre `000` y `111`, equivalente a 
+los valores decimales entre **0 y 7**.
+
+La salida del circuito se activa con un nivel lógico `1` cuando el número representado por las entradas corresponde a un número primo. Dentro del intervalo
+de tres bits, los números primos son:
+
+- **2** → `010`
+- **3** → `011`
+- **5** → `101`
+- **7** → `111`
+
+Para los demás valores posibles, la salida permanece en estado lógico `0`.
+
+A partir de la tabla de verdad se obtiene la función lógica:
+
+`P(A,B,C) = Σm(2,3,5,7)`
+
+La expresión simplificada correspondiente es:
+
+`P = (~A & B) | (A & C)`
+
+donde `P` representa la salida del detector de números primos.
+
+---
+
+#### 1.2.1 Descripción
+
+El detector de números primos fue implementado como un **circuito combinacional**, por lo que el estado de su salida depende únicamente de la combinación presente
+en las entradas `A`, `B` y `C`.
+
+Cada combinación de las tres entradas representa un valor decimal entre 0 y 7. El circuito evalúa dicho valor y genera una salida lógica `1` únicamente para las 
+combinaciones correspondientes a los números primos **2, 3, 5 y 7**.
+
+La función lógica obtenida fue implementada mediante compuertas lógicas y posteriormente descrita en lenguaje **Verilog**, permitiendo realizar su simulación y
+posterior implementación en la FPGA.
+
+---
+
+#### 1.2.2 Diagramas
+
+El circuito correspondiente al detector de números primos fue representado en el simulador **Digital**, permitiendo observar la relación entre las tres entradas y la salida del circuito.
+
+La implementación lógica corresponde a la expresión:
+
+`P = (~A & B) | (A & C)`
+
+La siguiente figura muestra el circuito implementado en Digital.
+
+![Diagrama del detector de números primos](img/diagrama_primos_digital_lab1.png)
+
+**Figura 2.** Diagrama lógico del detector de números primos de 3 bits implementado en Digital.
+
+#### Tabla de verdad
+
+La siguiente tabla presenta todas las combinaciones posibles de las entradas `A`, `B` y `C`, junto con el valor decimal representado y el estado de la salida `P`.
+
+| A | B | C | Decimal | P |
+|:---:|:---:|:---:|:---:|:---:|
+| 0 | 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 1 | 0 |
+| 0 | 1 | 0 | 2 | 1 |
+| 0 | 1 | 1 | 3 | 1 |
+| 1 | 0 | 0 | 4 | 0 |
+| 1 | 0 | 1 | 5 | 1 |
+| 1 | 1 | 0 | 6 | 0 |
+| 1 | 1 | 1 | 7 | 1 |
+
+**Tabla 2.** Tabla de verdad correspondiente al detector de números primos de 3 bits.
 ## Conclusiones
 
 
