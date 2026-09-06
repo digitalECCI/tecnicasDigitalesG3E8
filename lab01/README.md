@@ -77,6 +77,7 @@ La siguiente tabla muestra el estado de las salidas para cada combinación posib
 | 0 | 1 | 1 | 0 | 1 | 1 | 0 |
 | 1 | 0 | 0 | 0 | 1 | 1 | 0 |
 | 1 | 1 | 0 | 1 | 1 | 0 | 1 |
+
 **Tabla 1.** Tabla de verdad correspondiente a las compuertas lógicas implementadas.
 
 
