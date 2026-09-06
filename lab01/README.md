@@ -593,6 +593,10 @@ El circuito correspondiente al sumador completo fue representado en el simulador
 
 **Figura X.** Diagrama lógico del sumador completo de 1 bit implementado en Digital.
 
+![Diagrama del sumador completo](img/digital_3_1.png)
+
+**Figura X.** Diagrama lógico del sumador completo de 1 bit implementado en Digital.
+
 #### Tabla de verdad
 
 La siguiente tabla presenta las ocho combinaciones posibles de las entradas del sumador completo.
