@@ -2,8 +2,8 @@
 # Lab01 - Sumador/Restador de 4 bits
 
 # Integrantes
-    * [<!-- Remplace aqui nombre 1. -->](<!-- Remplace aqui link de usario 1 de github -->) 
-    * [<!-- Remplace aqui nombre 2. -->](<!-- Remplace aqui link de usario 2 de github -->) 
+    * [<!-- juan carlos ramos arias. -->](<!-- juancramosar-droid -->) 
+    * [<!-- daniel ducuara. -->](<!-- Remplace aqui link de usario 2 de github -->) 
     * [<!-- Remplace aqui nombre 3. -->](<!-- Remplace aqui link de usario 3 de github -->) 
 # Informe
 
