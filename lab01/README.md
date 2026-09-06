@@ -101,7 +101,14 @@ A continuación se presentan las formas de onda obtenidas durante la simulación
 
 1.2 Simulación compuertas logicas
 
+### 2.1 Simulación de compuertas lógicas
 
+La siguiente figura muestra las formas de onda obtenidas mediante **Icarus Verilog** y visualizadas en **GTKWave**. En la simulación
+se observan las entradas `A` y `B`, junto con las salidas correspondientes a las compuertas `AND`, `NOT`, `OR`, `XNOR` y `XOR`.
+
+![Simulación de compuertas lógicas en GTKWave](img/simulacion_compuertas_gtkwave_lab1.png)
+
+**Figura 2.** Simulación de las compuertas lógicas mediante Icarus Verilog y GTKWave.
 
 1.2 Diagrama
 
