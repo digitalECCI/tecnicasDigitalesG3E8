@@ -80,15 +80,30 @@ La siguiente tabla muestra el estado de las salidas para cada combinación posib
 
 **Tabla 1.** Tabla de verdad correspondiente a las compuertas lógicas implementadas.
 
+1 Simulaciones 
+
+1.1 Descripción
+
+Para verificar el funcionamiento del diseño se utilizó **Icarus Verilog** como herramienta de compilación y simulación del
+código HDL, complementado con **GTKWave** para la visualización gráfica de las señales generadas durante la simulación.
+Icarus Verilog permite compilar el módulo diseñado y su correspondiente archivo de prueba o *testbench*. A partir de la ejecución 
+de la simulación se genera un archivo de formas de onda, el cual posteriormente es abierto en GTKWave.
+
+Mediante GTKWave se observaron las señales de entrada `A` y `B`, junto con las salidas correspondientes a las compuertas 
+**NOT, AND, OR, XOR y XNOR**. Se probaron todas las combinaciones posibles de las entradas con el fin de comprobar que las salidas 
+obtenidas coincidieran con los valores establecidos en la tabla de verdad.
+
+El flujo utilizado para la simulación fue:
+
+`Código Verilog → Testbench → Icarus Verilog → Archivo de ondas → GTKWave`
+
+A continuación se presentan las formas de onda obtenidas durante la simulación.
+
+1.2 Simulación compuertas logicas
 
 
-## Simulaciones 
 
-### 1. Simulación del sumador/restador
-
-#### 1.1 Descripción
-
-#### 1.2 Diagrama
+1.2 Diagrama
 
 
 ## Evidencias de implementación
