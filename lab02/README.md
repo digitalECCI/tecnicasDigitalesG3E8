@@ -98,7 +98,7 @@ module full_sumador (
     wire C2;
     wire C3;
 
-    // Sumador del bit menos significativo
+   
     sumador_1bit bit0 (
         .A(A[0]),
         .B(B[0]),
@@ -107,7 +107,7 @@ module full_sumador (
         .S(S[0])
     );
 
-    // Segundo bit
+
     sumador_1bit bit1 (
         .A(A[1]),
         .B(B[1]),
@@ -116,7 +116,6 @@ module full_sumador (
         .S(S[1])
     );
 
-    // Tercer bit
     sumador_1bit bit2 (
         .A(A[2]),
         .B(B[2]),
@@ -125,7 +124,7 @@ module full_sumador (
         .S(S[2])
     );
 
-    // Bit más significativo
+  
     sumador_1bit bit3 (
         .A(A[3]),
         .B(B[3]),
@@ -162,15 +161,15 @@ Archivo sugerido: `laboratorio_1_4_TB.v`.
 
 module full_sumador_TB();
 
-// Entradas de 4 bits
+
 reg [3:0] A_TB;
 reg [3:0] B_TB;
 
-// Salidas
+
 wire [3:0] S_TB;
 wire       Co_TB;
 
-// Variables de los ciclos for
+
 integer i;
 integer j;
 
@@ -184,26 +183,19 @@ full_sumador uut (
 
 initial begin
 
-    // A recorre de 0000 a 1111
+ 
     for (i = 0; i < 16; i = i + 1) begin
-
-        // Para cada A, B recorre de 0000 a 1111
         for (j = 0; j < 16; j = j + 1) begin
 
             A_TB = i;
             B_TB = j;
 
             #5;
-
         end
-
     end
-
     $finish;
-
 end
 
-// Archivo para visualizar en GTKWave
 initial begin
 
     $dumpfile("simulacion_full_sumador.vcd");
