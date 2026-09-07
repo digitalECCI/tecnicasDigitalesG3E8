@@ -173,7 +173,7 @@ wire       Co_TB;
 integer i;
 integer j;
 
-// Instancia del sumador de 4 bits
+
 full_sumador uut (
     .A(A_TB),
     .B(B_TB),
