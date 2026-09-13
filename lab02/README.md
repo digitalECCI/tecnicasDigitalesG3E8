@@ -55,22 +55,10 @@ La salida `Co` se activa cuando al menos dos de las tres entradas tienen un nive
 
 #### Código Verilog del sumador de 1 bit
 
-Archivo sugerido: `laboratorio_1_4A.v`.
+Archivo de codigo sugerido: 
 
-```verilog
-module sumador_1bit (
-    input A,
-    input B,
-    input Ci,
-    output Co,
-    output S
-);
+[`laboratorio_1_4A.v`](./src/laboratorio_1_4A.v)
 
-    assign Co = (Ci & (A | B)) | (A & B);
-    assign S  = Ci ^ (A ^ B);
-
-endmodule
-```
 
 ### 1.3 Sumador de 4 bits
 
@@ -82,59 +70,10 @@ La conexión entre etapas sigue esta secuencia:
 
 #### Código Verilog del sumador de 4 bits
 
-Archivo sugerido: `laboratorio_1_4B.v`.
+Archivo de codigo sugerido: 
 
-```verilog
-`include "laboratorio_1_4A.v"
+[`laboratorio_1_4B.v`](./src/laboratorio_1_4B.v)
 
-module full_sumador (
-    input  [3:0] A,
-    input  [3:0] B,
-    output       Co,
-    output [3:0] S
-);
-
-    wire C1;
-    wire C2;
-    wire C3;
-
-   
-    sumador_1bit bit0 (
-        .A(A[0]),
-        .B(B[0]),
-        .Ci(1'b0),
-        .Co(C1),
-        .S(S[0])
-    );
-
-
-    sumador_1bit bit1 (
-        .A(A[1]),
-        .B(B[1]),
-        .Ci(C1),
-        .Co(C2),
-        .S(S[1])
-    );
-
-    sumador_1bit bit2 (
-        .A(A[2]),
-        .B(B[2]),
-        .Ci(C2),
-        .Co(C3),
-        .S(S[2])
-    );
-
-  
-    sumador_1bit bit3 (
-        .A(A[3]),
-        .B(B[3]),
-        .Ci(C3),
-        .Co(Co),
-        .S(S[3])
-    );
-
-endmodule
-```
 
 <a id="simulaciones"></a>
 
@@ -152,60 +91,9 @@ En total se prueban `16 × 16 = 256` combinaciones. Con la escala `` `timescale 
 
 ### 2.2 Testbench
 
-Archivo sugerido: `laboratorio_1_4_TB.v`.
+Archivo de codigo sugerido: 
 
-```verilog
-`timescale 1s/1s
-
-`include "laboratorio_1_4B.v"
-
-module full_sumador_TB();
-
-
-reg [3:0] A_TB;
-reg [3:0] B_TB;
-
-
-wire [3:0] S_TB;
-wire       Co_TB;
-
-
-integer i;
-integer j;
-
-
-full_sumador uut (
-    .A(A_TB),
-    .B(B_TB),
-    .Co(Co_TB),
-    .S(S_TB)
-);
-
-initial begin
-
- 
-    for (i = 0; i < 16; i = i + 1) begin
-        for (j = 0; j < 16; j = j + 1) begin
-
-            A_TB = i;
-            B_TB = j;
-
-            #5;
-        end
-    end
-    $finish;
-end
-
-initial begin
-
-    $dumpfile("simulacion_full_sumador.vcd");
-    $dumpvars(0, full_sumador_TB);
-
-end
-
-
-endmodule
-```
+[`laboratorio_1_4_TB.v`](./src/laboratorio_1_4TB.v)
 
 ### 2.3 Resultados de la simulación
 
