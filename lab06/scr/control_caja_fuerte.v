@@ -17,7 +17,7 @@ localparam [2:0] S_ABIERTO = 3'b100;
 localparam [2:0] S_ERROR   = 3'b101;
 localparam [2:0] S_BLOQUEO = 3'b110;
 
-localparam [11:0] CLAVE = 12'h123;
+localparam [11:0] CLAVE = 12'h3A7;
 
 reg [2:0] estado_siguiente;
 reg [3:0] digito_1;
